@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Body } from "./layout/Typography";
+import { PageLayout } from "./layout/Page";
 
 export default function Home() {
   return (
@@ -11,7 +12,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <Body>Howdy</Body>
+        <PageLayout>
+          <Body>Howdy</Body>
+        </PageLayout>
       </main>
 
       <footer></footer>

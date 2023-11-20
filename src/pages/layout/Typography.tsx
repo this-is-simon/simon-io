@@ -78,7 +78,7 @@ export const Headline = styled(BaseStyles)`
   ${fontWeightSemiBold};
 `;
 
-export const Body = styled.div`
+export const Body = styled(BaseStyles)`
   color: var(--text-color);
   font-size: 15px;
   line-height: 22px;
