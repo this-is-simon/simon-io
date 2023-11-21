@@ -1,6 +1,7 @@
 import Head from "next/head";
-import { Body } from "./layout/Typography";
+import { Body, Headline, LargeTitle } from "./layout/Typography";
 import { PageLayout } from "./layout/Page";
+import css, { styled } from "styled-components";
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
 
       <main>
         <PageLayout>
-          <Body>Howdy</Body>
+          <LargeTitle>Hi, I'm Simon Atkins</LargeTitle>
+          <Headline>Front-End Engineer</Headline>
+          <Body>I build digital experiences for the web</Body>
         </PageLayout>
       </main>
 
@@ -21,3 +24,7 @@ export default function Home() {
     </div>
   );
 }
+
+// const StyledBody = styled(Body)`
+//   padding-top: var(--spacing-md);
+// `;

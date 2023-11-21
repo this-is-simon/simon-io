@@ -4,12 +4,14 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
-  --white-light: 255, 255, 255; /* #ffffff */
+  --white-light:226, 232, 240; /* #ffffff */
+  --white-dark: 148, 163, 184; /* #ffffff */
   --cyan-mid: 0, 232, 255; /* #00e8ff */
   --magenta-mid: 255, 0, 117; /* #ff0075 */
   --black-dark: 1, 1, 1;
 
-  --text-color: rgb(var(--white-light));
+  --text-color: rgb(var(--white-dark));
+  --highlight-text-color: rgb(var(--white-light));
   --secondary-text-color: rgb(var(--white-mid));
   --unvisited-link-color: rgb(var(--cyan-mid));
   --focus-link-color: rgb(var(--cyan-mid));

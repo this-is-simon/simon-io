@@ -45,7 +45,7 @@ export const HeaderTitle = styled(BaseStyles)`
 `;
 
 export const LargeTitle = styled(BaseStyles)`
-  color: var(--text-color);
+  color: var(--highlight-text-color);
   font-size: 30px;
   line-height: 45px;
   ${fontWeightSemiBold}
@@ -73,6 +73,7 @@ export const Title3 = styled(BaseStyles)`
 `;
 
 export const Headline = styled(BaseStyles)`
+  color: var(--highlight-text-color);
   font-size: 16px;
   line-height: 24px;
   ${fontWeightSemiBold};
@@ -80,7 +81,7 @@ export const Headline = styled(BaseStyles)`
 
 export const Body = styled(BaseStyles)`
   color: var(--text-color);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 22px;
   ${fontWeightRegular}
 `;
