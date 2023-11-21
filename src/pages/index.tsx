@@ -15,8 +15,14 @@ export default function Home() {
       <main>
         <PageLayout>
           <LargeTitle>Hi, I'm Simon Atkins</LargeTitle>
-          <Headline>Front-End Engineer</Headline>
-          <Body>I build digital experiences for the web</Body>
+          <Headline
+            css={`
+              color: purple;
+            `}
+          >
+            Front-End Engineer
+          </Headline>
+          <StyledBody>I build digital experiences for the web</StyledBody>
         </PageLayout>
       </main>
 
@@ -25,6 +31,6 @@ export default function Home() {
   );
 }
 
-// const StyledBody = styled(Body)`
-//   padding-top: var(--spacing-md);
-// `;
+const StyledBody = styled(Body)`
+  padding-top: var(--spacing-md);
+`;
