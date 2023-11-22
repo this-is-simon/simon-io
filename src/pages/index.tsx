@@ -31,28 +31,48 @@ export default function Home() {
               <Body>
                 Back in 2016, I decided to propose to my girlfriend by coding a
                 treasure-hunt-marriage-proposal box out of an{" "}
-                <a href={ARDUINO_PROPOSAL_LINK}>antique toolbox and an Arduino</a>. (She said yes.)
+                <a href={ARDUINO_PROPOSAL_LINK}>antique toolbox and an Arduino microprocessor</a>.
+                (She said yes.)
               </Body>
               <Body>
-                I was hooked, and shortly after I left my comfortable marketing job for an{" "}
+                I was hooked on coding, and shortly after I left my comfortable marketing job for an{" "}
                 <a href={CAREER_CHANGE_LINK}>exciting new career</a> in software development. Soon I
                 would be working as a full-stack developer at{" "}
                 <a href={ADMINISTRATE_LINK}>Administrate</a> before moving to a new startup,{" "}
                 <a href={VAULT_BILLBOARD_LINK}>VAULT</a>, led by the founders of{" "}
-                <a href={FANDUEL_LINK}>FanDuel</a>. I naturally gravitated towards front-end
-                development, specialising in frameworks such as React and NextJS, and my main focus
-                these days is delivering responsive and beautiful web apps and internal tools.
+                <a href={FANDUEL_LINK}>FanDuel</a>.
+              </Body>
+              <Body>
+                I naturally gravitated towards front-end development, specialising in frameworks
+                such as React and NextJS, and my main focus these days is delivering responsive and
+                beautiful web apps and internal tools.
               </Body>
               <Body>
                 When I'm not at a computer I can usually be found raising an energetic toddler,
                 taking on overly-ambitious DIY projects, and rearing chickens.
               </Body>
               <ExperienceContainer direction={"column"}>
-                <ul>
+                <ul
+                  css={`
+                    width: 100%;
+                  `}
+                >
                   <ExperienceItem>
-                    <Flex>
-                      <Flex>2001 - Present</Flex>
-                      <Flex>Did some coding</Flex>
+                    <Flex align={"flex-start"} justify={"space-between"} gap={"var(--spacing-md)"}>
+                      <Flex
+                        css={`
+                          text-transform: uppercase;
+                        `}
+                        flex={1}
+                      >
+                        2001 - Present
+                      </Flex>
+                      <Flex flex={3} justify={"flex-start"}>
+                        <Flex direction={"column"} align={"baseline"}>
+                          <Body>Did some coding</Body>
+                          <Body> And some other things</Body>
+                        </Flex>
+                      </Flex>
                     </Flex>
                   </ExperienceItem>
                 </ul>
