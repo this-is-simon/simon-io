@@ -46,3 +46,9 @@ a:focus {
   text-decoration: none;
   color: var(--focus-link-color);
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+

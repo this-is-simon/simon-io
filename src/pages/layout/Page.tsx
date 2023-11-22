@@ -17,7 +17,7 @@ const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: var(--spacing-xl);
+  padding: var(--spacing-xxl) var(--spacing-xl);
   ${smallScreenAndBelow(
     css`
       padding: var(--spacing-xl) var(--spacing-sm);
@@ -26,6 +26,6 @@ const PageContainer = styled.div`
 `;
 
 const PageContent = styled.div`
-  max-width: 1440px;
+  max-width: 1000px;
   width: 100%;
 `;
