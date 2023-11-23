@@ -10,6 +10,7 @@ import {
   FANDUEL_LINK,
   VAULT_BILLBOARD_LINK,
 } from "../constants";
+import { EmploymentExperience } from "../components/EmploymentExperience";
 
 export default function Home() {
   return (
@@ -86,83 +87,6 @@ const EmploymentList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
-`;
-
-const ExperienceItem = styled.li``;
-
-interface EmploymentProps {
-  period: string;
-  role: string;
-  employer: string;
-  details: string;
-  skills: string[];
-}
-
-const EmploymentExperience = ({ period, role, employer, details, skills }: EmploymentProps) => {
-  return (
-    <ExperienceItem>
-      <Flex align={"flex-start"} justify={"space-between"} gap={"var(--spacing-md)"}>
-        <Flex justify={"flex-start"} flex={1}>
-          <Body
-            css={`
-              text-transform: uppercase;
-            `}
-          >
-            {period}
-          </Body>
-        </Flex>
-        <Flex
-          flex={2}
-          justify={"flex-start"}
-          css={`
-            max-width: 316px;
-          `}
-        >
-          <Flex direction={"column"} align={"baseline"}>
-            <Headline>{employer}</Headline>
-            <Body
-              css={`
-                color: var(--highlight-text-color);
-              `}
-            >
-              {role}
-            </Body>
-            <Subhead
-              css={`
-                margin-top: var(--spacing-xs);
-              `}
-            >
-              {details}
-            </Subhead>
-            <Flex
-              gap={"var(--spacing-xxs)"}
-              css={`
-                flex-wrap: wrap;
-                justify-content: flex-start;
-                margin-top: var(--spacing-sm);
-              `}
-            >
-              {skills.map((skill, key) => (
-                <Pill>
-                  <Skill>{skill}</Skill>
-                </Pill>
-              ))}
-            </Flex>
-          </Flex>
-        </Flex>
-      </Flex>
-    </ExperienceItem>
-  );
-};
-
-const Pill = styled.div`
-  padding: var(--spacing-xs);
-  background: var(--skill-pill-color);
-  border-radius: 9999px;
-`;
-
-const Skill = styled(Footnote)`
-  color: var(--skill-text-color);
 `;
 
 const jobs = [
