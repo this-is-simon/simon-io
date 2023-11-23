@@ -144,13 +144,7 @@ const EmploymentExperience = ({ period, role, employer, details, skills }: Emplo
             >
               {skills.map((skill, key) => (
                 <Pill>
-                  <Footnote
-                    css={`
-                      color: rgb(94 234 212);
-                    `}
-                  >
-                    {skill}
-                  </Footnote>
+                  <Skill>{skill}</Skill>
                 </Pill>
               ))}
             </Flex>
@@ -163,8 +157,12 @@ const EmploymentExperience = ({ period, role, employer, details, skills }: Emplo
 
 const Pill = styled.div`
   padding: var(--spacing-xs);
-  background: rgba(45, 212, 191, 0.2);
+  background: var(--skill-pill-color);
   border-radius: 9999px;
+`;
+
+const Skill = styled(Footnote)`
+  color: var(--skill-text-color);
 `;
 
 const jobs = [
