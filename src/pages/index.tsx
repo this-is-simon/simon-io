@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Body, HeaderTitle, Headline, Subhead } from "../components/Typography";
+import { Body, Footnote, HeaderTitle, Headline, Subhead } from "../components/Typography";
 import { PageLayout } from "../components/Page";
 import css, { styled } from "styled-components";
 import { Flex } from "../components/Flex";
@@ -21,7 +21,7 @@ export default function Home() {
 
       <main>
         <PageLayout>
-          <Flex align={"flex-start"} gap={"var(--spacing-md)"}>
+          <Content align={"flex-start"} gap={"var(--spacing-md)"}>
             <Flex align={"flex-start"} direction={"column"} flex={1}>
               <HeaderTitle>Simon Atkins</HeaderTitle>
               <Headline>Front-End Engineer</Headline>
@@ -59,16 +59,23 @@ export default function Home() {
                     period={job.period}
                     employer={job.employer}
                     details={job.details}
+                    skills={job.skills}
                   />
                 ))}
               </EmploymentList>
             </Flex>
-          </Flex>
+          </Content>
         </PageLayout>
       </main>
     </>
   );
 }
+
+const Content = styled(Flex)`
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
 
 const StyledBody = styled(Body)`
   padding-top: var(--spacing-md);
@@ -88,9 +95,10 @@ interface EmploymentProps {
   role: string;
   employer: string;
   details: string;
+  skills: string[];
 }
 
-const EmploymentExperience = ({ period, role, employer, details }: EmploymentProps) => {
+const EmploymentExperience = ({ period, role, employer, details, skills }: EmploymentProps) => {
   return (
     <ExperienceItem>
       <Flex align={"flex-start"} justify={"space-between"} gap={"var(--spacing-md)"}>
@@ -103,10 +111,22 @@ const EmploymentExperience = ({ period, role, employer, details }: EmploymentPro
             {period}
           </Body>
         </Flex>
-        <Flex flex={2} justify={"flex-start"}>
+        <Flex
+          flex={2}
+          justify={"flex-start"}
+          css={`
+            max-width: 316px;
+          `}
+        >
           <Flex direction={"column"} align={"baseline"}>
             <Headline>{employer}</Headline>
-            <Body>{role}</Body>
+            <Body
+              css={`
+                color: var(--highlight-text-color);
+              `}
+            >
+              {role}
+            </Body>
             <Subhead
               css={`
                 margin-top: var(--spacing-xs);
@@ -114,12 +134,38 @@ const EmploymentExperience = ({ period, role, employer, details }: EmploymentPro
             >
               {details}
             </Subhead>
+            <Flex
+              gap={"var(--spacing-xxs)"}
+              css={`
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                margin-top: var(--spacing-sm);
+              `}
+            >
+              {skills.map((skill, key) => (
+                <Pill>
+                  <Footnote
+                    css={`
+                      color: rgb(94 234 212);
+                    `}
+                  >
+                    {skill}
+                  </Footnote>
+                </Pill>
+              ))}
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
     </ExperienceItem>
   );
 };
+
+const Pill = styled.div`
+  padding: var(--spacing-xs);
+  background: rgba(45, 212, 191, 0.2);
+  border-radius: 9999px;
+`;
 
 const jobs = [
   {
@@ -128,6 +174,7 @@ const jobs = [
     employer: "Vault Industries Ltd: Edinburgh",
     details:
       "Currently working as a front-end software engineer for founders of Fanduel in fast-paced startup allowing music artists to create and sell digital box-sets to superfans. Responsible for writing and maintaining clean and responsive code, working closely with designers, fellow front-end developers and back-end developers.",
+    skills: ["TypeScript", "React", "NextJS", "Vercel", "Firebase"],
   },
   {
     period: "Jul 2018 - Jul 2019",
@@ -135,6 +182,7 @@ const jobs = [
     employer: "Administrate: Edinburgh",
     details:
       "Worked as a software engineer in a fast-paced Agile business creating a software product for Training Departments. Responsible for daily stand ups, writing quality code following TDD principles, conducting code reviews and functional tests, liaising with product managers, demonstrating completed tickets at weekly Code Demos. Working across the stack and continuing to learn each day.",
+    skills: ["JavaScript", "React", "Angular", "Python", "Php", "GraphQL", "SQL"],
   },
   {
     period: "Dec 2015 – Mar 2018",
@@ -142,5 +190,6 @@ const jobs = [
     employer: "Edinburgh Bicycle Cooperative: Edinburgh",
     details:
       "Worked as part of a team marketing bicycles and accessories within a challenging retail environment. Responsible for campaign planning, graphic design, email marketing to over 60k subscribers, managing social media accounts, and using CRM platform to rewrite sections of website. Worked closely with outside agency on PR and PPC campaigns.",
+    skills: ["Wordpress", "Google Analytics", "Google Adwords", "Mailchimp"],
   },
 ];
