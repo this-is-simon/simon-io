@@ -11,6 +11,7 @@ import {
   VAULT_BILLBOARD_LINK,
 } from "../constants";
 import { EmploymentExperience } from "../components/EmploymentExperience";
+import { Projects } from "../components/Projects";
 
 export default function Home() {
   return (
@@ -64,6 +65,17 @@ export default function Home() {
                   />
                 ))}
               </EmploymentList>
+              <ProjectList>
+                {projects.map((project, i) => (
+                  <Projects
+                    key={i}
+                    imgUrl={project.imgUrl}
+                    title={project.title}
+                    description={project.description}
+                    skills={project.skills}
+                  />
+                ))}
+              </ProjectList>
             </Flex>
           </Content>
         </PageLayout>
@@ -83,6 +95,13 @@ const StyledBody = styled(Body)`
 `;
 
 const EmploymentList = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+`;
+
+const ProjectList = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -115,3 +134,5 @@ const jobs = [
     skills: ["Wordpress", "Google Analytics", "Google Adwords", "Mailchimp"],
   },
 ];
+
+const projects = [{ title: "", imgUrl: "", description: "", skills: [""] }];

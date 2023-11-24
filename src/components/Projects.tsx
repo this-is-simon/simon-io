@@ -3,31 +3,23 @@ import { Body, Footnote, Headline, Subhead } from "./Typography";
 import { Flex } from "./Flex";
 
 interface EmploymentProps {
-  period: string;
-  role: string;
-  employer: string;
-  details: string;
+  title: string;
+  imgUrl: string;
+  description: string;
   skills: string[];
 }
 
-export const EmploymentExperience = ({
-  period,
-  role,
-  employer,
-  details,
-  skills,
-}: EmploymentProps) => {
+export const Projects = ({ title, imgUrl, description, skills }: EmploymentProps) => {
   return (
     <EmploymentItem>
       <Flex align={"flex-start"} justify={"space-between"} gap={"var(--spacing-md)"}>
         <Flex justify={"flex-start"} flex={1}>
-          <Period>{period}</Period>
+          <Period>{imgUrl}</Period>
         </Flex>
         <DetailsContainer flex={2} justify={"flex-start"}>
           <Flex direction={"column"} align={"baseline"}>
-            <Headline>{employer}</Headline>
-            <Role>{role}</Role>
-            <Details>{details}</Details>
+            <Headline>{title}</Headline>
+            <Details>{description}</Details>
             <SkillsContainer gap={"var(--spacing-xxs)"}>
               {skills.map((skill, key) => (
                 <Pill key={key}>
