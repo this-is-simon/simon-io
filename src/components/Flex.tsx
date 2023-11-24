@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { xSmallScreen } from "../mediaQuery";
 
 interface FlexProps {
   gap?: string;
