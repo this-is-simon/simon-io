@@ -62,6 +62,7 @@ export default function Home() {
                     employer={job.employer}
                     details={job.details}
                     skills={job.skills}
+                    link={job.link}
                   />
                 ))}
               </EmploymentList>

@@ -11,7 +11,6 @@ interface ProjectProps {
 }
 
 export const Projects = ({ title, imgUrl, description, skills, link }: ProjectProps) => {
-  console.log(link);
   return (
     <ProjectItem>
       <Flex justify={"flex-start"}>
@@ -20,14 +19,9 @@ export const Projects = ({ title, imgUrl, description, skills, link }: ProjectPr
       <DetailsContainer justify={"flex-start"}>
         <Flex direction={"column"} align={"baseline"}>
           <Headline>
-            <a
-              css={`
-                color: inherit;
-              `}
-              href={link}
-            >
+            <StyledLink href={link} target={"_blank"}>
               {title}
-            </a>
+            </StyledLink>
           </Headline>
           <Details>{description}</Details>
           <SkillsContainer gap={"var(--spacing-xxs)"}>
@@ -56,6 +50,10 @@ const DetailsContainer = styled(Flex)`
   @media (max-width: 1024px) {
     max-width: none;
   }
+`;
+
+const StyledLink = styled.a`
+  color: inherit;
 `;
 
 const Role = styled(Body)`
