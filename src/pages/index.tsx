@@ -12,6 +12,7 @@ import {
 } from "../constants";
 import { EmploymentExperience, jobs } from "../components/EmploymentExperience";
 import { Projects, projects } from "../components/Projects";
+import { xSmallScreen } from "../mediaQuery";
 
 export default function Home() {
   return (
@@ -24,7 +25,18 @@ export default function Home() {
       <main>
         <PageLayout>
           <Content align={"flex-start"} gap={"var(--spacing-md)"}>
-            <Flex align={"flex-start"} direction={"column"} flex={1}>
+            <Flex
+              align={"flex-start"}
+              direction={"column"}
+              flex={1}
+              css={`
+                position: sticky;
+                top: var(--spacing-xl);
+                @media (max-width: 768px) {
+                  position: static;
+                }
+              `}
+            >
               <HeaderTitle>Simon Atkins</HeaderTitle>
               <Headline>Front-End Engineer</Headline>
               <StyledBody>I build high-quality digital experiences for the web</StyledBody>
