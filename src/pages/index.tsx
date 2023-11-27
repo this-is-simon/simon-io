@@ -66,27 +66,32 @@ export default function Home() {
                   />
                 ))}
               </EmploymentList>
+              <Title2
+                css={`
+                  margin: var(--spacing-lg) 0;
+                  text-align: left;
+                  width: 100%;
+                  @media (max-width: 425px) {
+                    margin-bottom: 0;
+                  }
+                `}
+              >
+                Personal Projects
+              </Title2>
+              <ProjectList>
+                {projects.map((project, i) => (
+                  <Projects
+                    key={i}
+                    imgUrl={project.imgUrl}
+                    title={project.title}
+                    description={project.description}
+                    skills={project.skills}
+                    link={project.link}
+                  />
+                ))}
+              </ProjectList>
             </Flex>
           </Content>
-          <Title2
-            css={`
-              margin: var(--spacing-lg) 0;
-            `}
-          >
-            Personal Projects
-          </Title2>
-          <ProjectList>
-            {projects.map((project, i) => (
-              <Projects
-                key={i}
-                imgUrl={project.imgUrl}
-                title={project.title}
-                description={project.description}
-                skills={project.skills}
-                link={project.link}
-              />
-            ))}
-          </ProjectList>
         </PageLayout>
       </main>
     </>
@@ -113,6 +118,8 @@ const EmploymentList = styled.ul`
 const ProjectList = styled.ul`
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-lg);
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-md) 0;
 `;

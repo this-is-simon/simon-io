@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Body, Footnote, Headline, Subhead } from "./Typography";
 import { Flex } from "./Flex";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 
 interface ProjectProps {
   title: string;
@@ -13,8 +15,25 @@ interface ProjectProps {
 export const Projects = ({ title, imgUrl, description, skills, link }: ProjectProps) => {
   return (
     <ProjectItem>
-      <Flex justify={"flex-start"}>
-        <Period>{imgUrl}</Period>
+      <Flex
+        justify={"flex-start"}
+        flex={1}
+        css={`
+          padding-bottom: var(--spacing-sm);
+        `}
+      >
+        {imgUrl && (
+          <a href={link}>
+            <img
+              alt={title}
+              src={imgUrl}
+              width="0"
+              height="0"
+              sizes="33vw"
+              style={{ width: "100%", height: "auto", borderRadius: "4px" }}
+            />
+          </a>
+        )}
       </Flex>
       <DetailsContainer justify={"flex-start"}>
         <Flex direction={"column"} align={"baseline"}>
@@ -38,7 +57,14 @@ export const Projects = ({ title, imgUrl, description, skills, link }: ProjectPr
 };
 
 const ProjectItem = styled.li`
-  min-width: 200px;
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 0;
+  }
 `;
 
 const Period = styled(Body)`
@@ -47,6 +73,7 @@ const Period = styled(Body)`
 
 const DetailsContainer = styled(Flex)`
   max-width: 310px;
+  flex: 2;
   @media (max-width: 1024px) {
     max-width: none;
   }
@@ -83,7 +110,7 @@ const Pill = styled.div`
 export const projects = [
   {
     title: "This website!",
-    imgUrl: "",
+    imgUrl: "/this-is-simon.png",
     description:
       "A portfolio/CV website built with React, NextJS 13, and Vercel. Click on the link for the Github repo",
     skills: ["Typescript", "React", "NextJS", "Vercel"],
@@ -91,31 +118,31 @@ export const projects = [
   },
   {
     title: "Catch of the Day",
-    imgUrl: "",
+    imgUrl: "/catch-of-the-day.png",
     description:
       "A full-stack Javascript/React web app where users can log in using Facebook or Github SSO, view fish to buy, add to basket and view a receipt. Utilises a Firebase database",
     skills: ["Javascript", "React", "SSO", "Firestore"],
     link: "https://github.com/this-is-simon/catch-of-the-day",
   },
   {
-    title: "The Coal-culator",
-    imgUrl: "",
-    description:
-      "A full-stack Javascript/Node web app to quickly and easily calculate a user’s carbon footprint, featuring data persistence using MongoDB",
-    skills: ["Javascript", "Nodejs", "MongoDB"],
-    link: "https://github.com/this-is-simon/coalculator_group_project",
-  },
-  {
     title: "Internet Troll Rehab Centre",
-    imgUrl: "",
+    imgUrl: "/internet_troll_rehab.png",
     description:
       "A web application for users to register to adopt an internet troll, and edit troll details. Built using RESTful API in Ruby, Sinatra and SQL",
     skills: ["Ruby", "Sinatra", "REST", "SQL"],
     link: "https://github.com/this-is-simon/cc_w5_PROJECT/blob/master/internet_troll_rehab_screenshot.png",
   },
   {
+    title: "The Coal-culator",
+    imgUrl: "/coal-culator.png",
+    description:
+      "A full-stack Javascript/Node web app to quickly and easily calculate a user’s carbon footprint, featuring data persistence using MongoDB",
+    skills: ["Javascript", "Nodejs", "MongoDB"],
+    link: "https://github.com/this-is-simon/coalculator_group_project",
+  },
+  {
     title: "Model Airport",
-    imgUrl: "",
+    imgUrl: "/model-airport.png",
     description:
       "A Java project to model an airport with planes, tickets, passengers and consumables. Built with a focus on Test-Driven Development",
     skills: ["TDD", "Java"],
