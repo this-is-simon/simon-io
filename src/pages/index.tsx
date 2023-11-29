@@ -8,11 +8,14 @@ import {
   ARDUINO_PROPOSAL_LINK,
   CAREER_CHANGE_LINK,
   FANDUEL_LINK,
+  GITHUB_LINK,
+  LINKEDIN_LINK,
   VAULT_BILLBOARD_LINK,
 } from "../constants";
 import { EmploymentExperience, jobs } from "../components/EmploymentExperience";
 import { Projects, projects } from "../components/Projects";
-import { xSmallScreen } from "../mediaQuery";
+import Linkedin from "../../public/linkedin.svg";
+import Github from "../../public/github.svg";
 
 export default function Home() {
   return (
@@ -25,23 +28,27 @@ export default function Home() {
       <main>
         <PageLayout>
           <Content align={"flex-start"} gap={"var(--spacing-md)"}>
-            <Flex
+            <LeftColumn
               align={"flex-start"}
               direction={"column"}
               flex={1}
-              css={`
-                position: sticky;
-                top: var(--spacing-xl);
-                @media (max-width: 768px) {
-                  position: static;
-                }
-              `}
+              justify={"space-between"}
             >
-              <HeaderTitle>Simon Atkins</HeaderTitle>
-              <Headline>Front-End Engineer</Headline>
-              <StyledBody>I build high-quality digital experiences for the web</StyledBody>
-            </Flex>
-            <Flex direction={"column"} flex={1} gap={"var(--spacing-lg)"}>
+              <Flex direction={"column"} align={"flex-start"}>
+                <HeaderTitle>Simon Atkins</HeaderTitle>
+                <Headline>Front-End Engineer</Headline>
+                <StyledBody>I build high-quality digital experiences for the web</StyledBody>
+              </Flex>
+              <Flex gap={"var(--spacing-md)"}>
+                <StyledIcon href={LINKEDIN_LINK} target="_blank">
+                  <Linkedin height={30} width={30} />
+                </StyledIcon>
+                <StyledIcon href={GITHUB_LINK} target="_blank">
+                  <Github height={30} width={30} />
+                </StyledIcon>
+              </Flex>
+            </LeftColumn>
+            <RightColumn direction={"column"} flex={1} gap={"var(--spacing-lg)"}>
               <Body>
                 Back in 2016, I decided to propose to my girlfriend by coding a
                 treasure-hunt-marriage-proposal box out of an{" "}
@@ -62,7 +69,7 @@ export default function Home() {
                 beautiful web apps and internal tools.
               </Body>
               <Body>
-                When Im not at a computer I can usually be found raising an energetic toddler,
+                When I'm not at a computer I can usually be found raising an energetic toddler,
                 taking on overly-ambitious DIY projects, and rearing chickens.
               </Body>
               <EmploymentList>
@@ -102,7 +109,7 @@ export default function Home() {
                   />
                 ))}
               </ProjectList>
-            </Flex>
+            </RightColumn>
           </Content>
         </PageLayout>
       </main>
@@ -116,8 +123,26 @@ const Content = styled(Flex)`
   }
 `;
 
+const LeftColumn = styled(Flex)`
+  position: sticky;
+  top: var(--spacing-xl);
+  height: 80vh;
+  @media (max-width: 768px) {
+    position: static;
+  }
+`;
+
+const StyledIcon = styled.a`
+  color: rgb(var(--text-color));
+  &:hover {
+    opacity: 0.6;
+  }
+`;
+
+const RightColumn = styled(Flex)``;
+
 const StyledBody = styled(Body)`
-  padding-top: var(--spacing-md);
+  padding: var(--spacing-md) 0;
 `;
 
 const EmploymentList = styled.ul`
